@@ -1,0 +1,4 @@
+angular.module('mechofest').run(['$templateCache', function($templateCache) {$templateCache.put('js/components/home/home.html','<div class="mf-page">\n  <mf-header></mf-header>\n\n  <div ng-click="home.stateChange(\'contact\')">Contact</div>\n  <div ng-click="home.stateChange(\'contactone\')">Contact 1</div>\n  <div ng-click="home.stateChange(\'contacttwo\')">Contact 2</div>\n\n  <div ui-view=""></div>\n\n  <mf-footer></mf-footer>\n</div>\n');
+$templateCache.put('js/components/contact/contact.html','<div class="mf-page">\n  <h2>{{contact.action}}</h2>\n</div>\n');
+$templateCache.put('js/directives/footer/footer.html','<div>\n  <h1>Footer</h1>\n</div>\n');
+$templateCache.put('js/directives/header/header.html','<div>\n  <h1>Header</h1>\n</div>\n');}]);

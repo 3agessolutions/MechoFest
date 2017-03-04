@@ -1,0 +1,22 @@
+{
+  "name": "mechofest",
+  "description": "Festival for Mechanics",
+  "main": "index.js",
+  "authors": [
+    "Shanthiya"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "Mechanical",
+    "Festival",
+    "Inter",
+    "college",
+    "meet"
+  ],
+  "homepage": "",
+  "dependencies": {
+    "angular": "^1.6.2",
+    "angular-datepicker": "^2.0.3",
+    "angular-ui-router": "^0.4.2"
+  }
+}
