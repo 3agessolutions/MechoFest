@@ -3,6 +3,3 @@ node_modules/
 
 # bower_components
 bower_components/
-
-# admin php
-app/admin

@@ -24,7 +24,7 @@ gulp.task('clean', function() {
 });
 
 gulp.task('compile-scss', function() {
-    return gulp.src(rootAppPath + '**/*.scss')
+    return gulp.src([rootAppPath + '**/*.scss', '!' + rootAppPath + '/admin{,/**}'])
         .pipe(sass({
             style: 'expanded'
         }).on('error', sass.logError))
@@ -43,14 +43,14 @@ gulp.task('inject', function() {
             addPrefix: '..',
             addRootSlash: false
         }))
-        .pipe(inject(gulp.src([rootAppPath + '**/*.js'], {
+        .pipe(inject(gulp.src([rootAppPath + '**/*.js', '!' + rootAppPath + '/admin{,/**}'], {
             read: false
         }), {
             name: 'script',
             addPrefix: '..',
             addRootSlash: false
         }))
-        .pipe(inject(gulp.src([rootAppPath + '**/*.css'], {
+        .pipe(inject(gulp.src([rootAppPath + '**/*.css', '!' + rootAppPath + '/admin{,/**}'], {
             read: false
         }), {
             name: 'style',
