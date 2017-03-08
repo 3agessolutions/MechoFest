@@ -42,12 +42,12 @@ class RegisterController extends Controller
 
     try {
       $registerId = $participants->save();
-      $data[0] = 'welcome';
-      Mail::send('emails.reminder', $data, function ($message) {
-          $message->from('nagarajueac12@gmail.com', 'Nagaraju');
-          $message->subject('MechoFest');
-          $message->to('nagarajueac12@gmail.com');
-      });
+      // $data[0] = 'welcome';
+      // Mail::send('emails.reminder', $data, function ($message) {
+      //     $message->from('nagarajueac12@gmail.com', 'Nagaraju');
+      //     $message->subject('MechoFest');
+      //     $message->to('nagarajueac12@gmail.com');
+      // });
       return ['Success' => $registerId > 0 ? true : false];
     } catch(Exception $e) {
       return ['Success' => false, 'ErrorMessage' => $e];

@@ -6,6 +6,7 @@ var minify = require('gulp-minify-css');
 var gzip = require('gulp-gzip');
 var clean = require('gulp-clean');
 var inject = require('gulp-inject');
+var merge = require('merge-stream');
 var templateCache = require('gulp-angular-templatecache');
 var mainBowerFiles = require('main-bower-files');
 
@@ -13,7 +14,7 @@ var rootPath = './';
 var rootAppPath = './app/';
 
 /** Development steps **/
-gulp.task('start', ['compile-scss', 'cache', 'inject'], function() {
+gulp.task('start', ['compile-scss', 'font-img', 'cache', 'inject'], function() {
     console.log('Starting compiling scss');
 });
 
@@ -24,26 +25,44 @@ gulp.task('clean', function() {
 });
 
 gulp.task('compile-scss', function() {
-    return gulp.src([rootAppPath + '**/*.scss', '!' + rootAppPath + '/admin{,/**}'])
-        .pipe(sass({
+    var concatScss = gulp.src([
+            rootAppPath + 'scss/theme/mixin.scss',
+            rootAppPath + 'scss/common/*.scss',
+            rootAppPath + 'js/**/*.scss',
+        ])
+        .pipe(concat('style.scss'))
+        //.pipe(gzip())
+        .pipe(gulp.dest(rootAppPath + 'scss'));
+
+    var compileScss = gulp.src([
+            rootAppPath + 'scss/style.scss'
+        ]).pipe(sass({
             style: 'expanded'
         }).on('error', sass.logError))
         .pipe(minify())
         .pipe(concat('style.css'))
-        //.pipe(gzip())
         .pipe(gulp.dest(rootAppPath + 'css'));
+
+    return merge(concatScss, compileScss);
+
 });
 
-gulp.task('inject', function() {
+gulp.task('inject', ['inject-bower'], function() {
+
+});
+
+gulp.task('inject-bower', function() {
+    var bowerJs = gulp.src(mainBowerFiles())
+        .pipe(concat('vendor/vendor.js'))
+        //.pipe(uglify())
+        .pipe(gulp.dest(rootAppPath));
+
     return gulp.src(rootPath + 'index.php')
-        .pipe(inject(gulp.src(mainBowerFiles(), {
-            read: false
-        }), {
-            name: 'bower',
-            addPrefix: '..',
-            addRootSlash: false
-        }))
-        .pipe(inject(gulp.src([rootAppPath + '**/*.js', '!' + rootAppPath + '/admin{,/**}'], {
+        .pipe(inject(gulp.src([
+            rootAppPath + 'vendor/vendor.js',
+            rootAppPath + '**/*.js',
+            '!' + rootAppPath + '/admin{,/**}'
+        ], {
             read: false
         }), {
             name: 'script',
@@ -58,12 +77,22 @@ gulp.task('inject', function() {
             addRootSlash: false
         }))
         .pipe(gulp.dest(rootAppPath));
+
+    return merge(bowerJs, injectJs);
 });
 
-gulp.task('cache', function () {
-  return gulp.src(rootAppPath + '**/*.html')
-    .pipe(templateCache('mf.template.js', {
-      module: 'mechofest'
-    }))
-    .pipe(gulp.dest(rootAppPath + 'js'));
+gulp.task('font-img', function() {
+    gulp.src([rootAppPath + 'scss/fonts/**'])
+        .pipe(gulp.dest(rootAppPath + 'css/fonts'));
+    return gulp.src([, rootAppPath + 'scss/imgs/**'])
+        .pipe(gulp.dest(rootAppPath + 'css/imgs'));
+
+});
+
+gulp.task('cache', function() {
+    return gulp.src([rootAppPath + '**/*.html', '!' + rootAppPath + '/admin{,/**}'])
+        .pipe(templateCache('mf.template.js', {
+            module: 'mechofest'
+        }))
+        .pipe(gulp.dest(rootAppPath + 'js'));
 });

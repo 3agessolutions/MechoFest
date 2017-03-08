@@ -15,7 +15,7 @@
     <div ui-view></div>
 
   </div>
-  <!-- bower:js -->
+  <!-- vendor:js -->
   <!-- endinject -->
 
   <!-- script:js -->

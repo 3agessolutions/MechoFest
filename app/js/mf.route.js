@@ -5,7 +5,7 @@
         .config(mfConfig);
 
     function mfConfig($stateProvider, $urlRouterProvider) {
-        $urlRouterProvider.otherwise('/home');
+        $urlRouterProvider.otherwise('/');
     }
 
     angular

@@ -31,6 +31,7 @@
 
         function stateChange() {
           console.log(vm.model);
+          vm.model._token = 'ABDFDFAKLDFJ232323223';
           httpUtil.post(mfConstants.base_app_service_url + '/register', vm.model).then(function(resp){
             console.log(resp);
           }, function(error){
