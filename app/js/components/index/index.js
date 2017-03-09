@@ -17,7 +17,7 @@
         };
     }
 
-    function MfIndexController($state, httpUtil, mfConstants) {
+    function MfIndexController($state, httpUtil, mfConstants, $interval) {
 
         var vm = this;
 
@@ -26,10 +26,18 @@
         init();
 
         function init() {
+            vm.activeIndex = 1;
+            $interval(function() {
+                if (vm.activeIndex === 6) {
+                    vm.activeIndex = 1;
+                } else {
+                    vm.activeIndex++;
+                }
+            }, 10000);
         }
 
-        function stateChange() {
-
+        function stateChange(type) {
+            $state.go('home.' + type);
         }
 
     }

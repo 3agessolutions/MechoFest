@@ -19,13 +19,22 @@
         return directive;
     }
 
-    function MfHeader() {
+    function MfHeader($state) {
 
         var vm = this;
+
+        vm.stateChange = stateChange;
         activate();
 
         function activate() {
 
+        }
+
+        function stateChange(type) {
+            $state.go(type, {
+                active: null,
+                model: null
+            });
         }
     }
 })();

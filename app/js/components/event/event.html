@@ -1,0 +1,18 @@
+<div class="mecho-fest-events">
+    <mf-header></mf-header>
+
+    <mf-banner page="event"></mf-banner>
+    <div class="event-header">
+        <h2>Events</h2>
+        <p>
+            <span class="event-title">Date:</span>
+            <span class="event-value">24 - March - 2017</span>
+        </p>
+        <p>
+            <span class="event-title">Venue:</span>
+            <span class="event-value">SSM COLLEGE OF ENGINEERING</span>
+        </p>
+    </div>
+    <mf-events model="event.model" ng-if="!event.model.activeEvent"></mf-events>
+    <mf-event-view model="event.model" ng-if="event.model.activeEvent"></mf-events-view>
+</div>

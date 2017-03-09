@@ -35,8 +35,8 @@ class RegisterController extends Controller
     $participants->Department = $request->Department;
     $participants->ParticipantEmail = $request->ParticipantEmail;
     $participants->ParticipantPhone = $request->ParticipantPhone;
-    $participants->ParticipantEvents = '-';
-    $participants->PresentationTopic = '-';
+    $participants->ParticipantEvents = $request->ParticipantEvents;
+    $participants->PresentationTopic = $request->PresentationTopic;
     $participants->CreateDate = '-';
     $participants->ModifiedDate = '-';
 

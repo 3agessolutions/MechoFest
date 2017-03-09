@@ -11,10 +11,10 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 --
--- Database: `mechofest`
+-- Database: `mechofes_event`
 --
-CREATE DATABASE IF NOT EXISTS `mechofest` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `mechofest`;
+CREATE DATABASE IF NOT EXISTS `mechofes_event` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `mechofes_event`;
 
 -- --------------------------------------------------------
 

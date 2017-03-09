@@ -1,66 +1,90 @@
 <div class="mf-page">
     <mf-header></mf-header>
+    <mf-banner page="register"></mf-banner>
 
-    <form novalidate class="simple-form">
 
-        <div class="form-row">
-            <span>Name</span>
-            <input type="text" ng-model="register.model.ParticipantName" name="ParticipantName"/>
-        </div>
+    <div class="fest-register">
+        <div class="fest-register-content">
+            <div class="fest-register-title"> Register </div>
+            <div class="fest-register-form">
+                <p class="row-success" ng-if="register.success">Registration successful.</p>
+                <p class="row-warning" ng-if="register.warningMessage">{{register.warningMessage}}</p>
 
-        <div class="form-row">
-            <span>Gender</span>
-            <div>
-              <input type="radio" ng-model="register.model.ParticipantGender" value="M">
-              <input type="radio" ng-model="register.model.ParticipantGender" value="F">
+                <form novalidate class="simple-form" name="register.registerForm">
+                    <div class="form-row">
+                        <div class="form-label">Name</div>
+                        <div class="form-field">
+                            <input type="text" ng-model="register.model.ParticipantName" name="ParticipantName" required/>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-label">Gender</div>
+                        <div class="form-field">
+                            <div class="form-field-radio">
+                                <input type="radio" ng-model="register.model.ParticipantGender" value="M" required> <span>Male</span>
+                            </div>
+                            <div class="form-field-radio">
+                                <input type="radio" ng-model="register.model.ParticipantGender" value="F" required> <span>Female</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-label">College</div>
+                        <div class="form-field">
+                            <input type="text" ng-model="register.model.ParticipantCollege" name="ParticipantCollege" required/>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-label">Events</div>
+                        <div class="form-field">
+                            <div class="form-field-radio">
+                                <input type="checkbox" ng-model="register.model.paper" value="M"> <span>Paper Presentation</span>
+                            </div>
+                            <div class="form-field-radio">
+                                <input type="checkbox" ng-model="register.model.aqua" value="F"> <span>Aqua Missile</span>
+                            </div>
+                            <div class="form-field-radio">
+                                <input type="checkbox" ng-model="register.model.quiz" value="F"> <span>Technical Quiz</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row" ng-if="register.model.paper">
+                        <div class="form-label">Presentation Topic</div>
+                        <div class="form-field">
+                            <input type="text" ng-model="register.model.PresentationTopic" name="PresentationTopic" required/>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-label">Year</div>
+                        <div class="form-field">
+                            <input type="text" ng-model="register.model.Year" name="Year" ng-pattern=/^\+?\d{4}$/ required/>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-label">Department</div>
+                        <div class="form-field">
+                            <input type="text" ng-model="register.model.Department" name="Department" required/>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-label">Email</div>
+                        <div class="form-field">
+                            <input type="email" ng-model="register.model.ParticipantEmail" name="Email" required/>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-label">Phone</div>
+                        <div class="form-field">
+                            <input type="text" ng-model="register.model.ParticipantPhone" ng-pattern=/^\+?\d{10}$/ name="Phone" required/>
+                        </div>
+                    </div>
+                    <div class="form-row form-footer">
+                      <input class="form-button" ng-disabled="register.registerForm.$invalid" type="submit" value="SUBMIT" ng-click="register.stateChange()" />
+                    </div>
+                </form>
             </div>
         </div>
-
-        <div class="form-row">
-            <span>College</span>
-            <input type="text" ng-model="register.model.ParticipantCollege" name="ParticipantCollege"/>
-        </div>
-
-        <!-- <div class="form-row">
-          <span>Events</span>
-          <div>
-            <input type="checkbox" ng-model="register.model.ParticipantGender" name="event_name[]" value="event1">
-            <input type="checkbox" ng-model="register.model.ParticipantGender" name="event_name[]" value="event2">
-          </div>
-        </div>
-
-        <div class="form-row">
-          <span>Presentation Topic</span>
-          <div>
-            <input type="text" ng-model="register.model.PresentationTopic" name="PresentationTopic"/>
-          </div>
-        </div> -->
-
-        <div class="form-row">
-          <span>Year</span>
-          <input type="text" ng-model="register.model.Year" name="Year"/>
-        </div>
-
-        <div class="form-row">
-          <span>Department</span>
-          <input type="text" ng-model="register.model.Department" name="Department"/>
-        </div>
-
-        <div class="form-row">
-          <span>Email</span>
-          <input type="text" ng-model="register.model.ParticipantEmail" name="Year"/>
-        </div>
-
-        <div class="form-row">
-          <span>Phone</span>
-          <input type="text" ng-model="register.model.ParticipantPhone" name="Year"/>
-        </div>
-
-        <div class="form-row">
-          <input type="submit" value="submit" ng-click="register.stateChange()"/>
-        </div>
-
-    </form>
+    </div>
 
     <mf-footer></mf-footer>
 </div>

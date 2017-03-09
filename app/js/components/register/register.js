@@ -27,16 +27,46 @@
 
         function init() {
           vm.model = vm.model || {};
+          vm.success = false;
         }
 
         function stateChange() {
-          console.log(vm.model);
-          vm.model._token = 'ABDFDFAKLDFJ232323223';
+          var selectedEvents = '';
+          vm.success = false;
+
+          if(vm.model.paper) {
+            selectedEvents += getEventTopic(true, false, false);
+          }
+          if(vm.model.aqua) {
+            selectedEvents += ',' + getEventTopic(false, true, false);
+          }
+          if(vm.model.quiz) {
+            selectedEvents += ',' + getEventTopic(false, false, true);
+          }
+
+          if(selectedEvents === '') {
+            vm.warningMessage = 'Please select atleast one event';
+            return false;
+          }
+
+          vm.model.ParticipantEvents = selectedEvents;
           httpUtil.post(mfConstants.base_app_service_url + '/register', vm.model).then(function(resp){
-            console.log(resp);
+            vm.success = resp.Success;
+            vm.warningMessage = '';
           }, function(error){
-            console.log(error);
+            vm.success = false;
+            vm.warningMessage = error.ErrorMessage;
           });
+        }
+
+        function getEventTopic(isPaper, isAqua, isQuiz) {
+          if(isPaper) {
+            return 'Paper Presentation';
+          } else if(isAqua) {
+            return 'Aqua Missile';
+          } else if(isQuiz) {
+            return 'Technical Quiz';
+          }
         }
 
     }

@@ -26,6 +26,7 @@ gulp.task('clean', function() {
 
 gulp.task('compile-scss', function() {
     var concatScss = gulp.src([
+            rootAppPath + 'scss/theme/fonts.scss',
             rootAppPath + 'scss/theme/mixin.scss',
             rootAppPath + 'scss/common/*.scss',
             rootAppPath + 'js/**/*.scss',

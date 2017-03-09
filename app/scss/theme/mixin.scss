@@ -73,3 +73,25 @@ html {
     font-family: $family;
     color: $color;
 }
+
+
+@mixin animation($name, $duration, $count) {
+     @each $prefix in -webkit-, -moz-, -ms-, -o-,""{
+        #{$prefix}animation-name: $name;
+        #{$prefix}animation-duration: $duration;
+        #{$prefix}animation-iteration-count: $count;
+        #{$prefix}animation-timing-function: linear;
+    }
+}
+@mixin animation-keyframes($name, $start, $end) {
+    @each $prefix in -webkit-, -moz-, -ms-, -o-,""{
+        @-webkit-keyframes #{$name} {
+            from {
+                #{$prefix}transform: rotate($start);
+            }
+            to {
+                #{$prefix}transform: rotate($end);
+            }
+        }
+    }
+}

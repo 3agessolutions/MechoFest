@@ -1,0 +1,45 @@
+.event-view {
+    width: 100%;
+    margin-top: 30px;
+    background: url('imgs/event_back.png') no-repeat center center;
+    background-size: cover;
+    min-height: 100vh;
+    .event-view-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        .event-view-title {
+            @include font(40px, 80px, 'fontBold', #ffffff);
+            text-align: center;
+        }
+
+        .event-view-topics, .event-view-rules {
+            padding-top: 50px;
+            h4 {
+                @include font(30px, 50px, 'fontBold', #ffffff);
+                text-align: left;
+            }
+            ul li {
+                padding-left: 40px;
+                background: url('imgs/bullet.png') no-repeat 0px 5px;
+                background-size: 30px 30px;
+                @include font(16px, 40px, 'fontRegular', #ffffff);
+                text-align: left;
+            }
+        }
+    }
+
+    .event-contact {
+        padding: 50px 20px;
+		max-width: 1200px;
+        margin: 0 auto;
+        h2 {
+            @include font(20px, 40px, 'fontBold', #ffffff);
+			text-align: left;
+        }
+        p {
+            @include font(14px, 24px, 'fontRegular', #ffffff);
+			text-align: left;
+        }
+    }
+}
