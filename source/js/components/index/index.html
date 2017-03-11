@@ -1,0 +1,51 @@
+<div class="mecho-fest mf-page">
+    <mf-header></mf-header>
+    <div ng-if="home.imageLoaded">
+      <mf-banner></mf-banner>
+      <div class="home-content">
+          <div class="home-photo">
+              <img src="files/header/college.png" />
+          </div>
+          <div class="home-name">SSM COLLEGE OF ENGINEERING</div>
+          <div class="home-detail">
+              <p>SSM College of Engineering was established in 1998 through the persistent efforts of ‘Gnanathandhai’ SSM Subramaniam, an industrial conglomerate.</p>
+              <p>SSM College of Engineering headed by the Chairman 'Cavalier’ Dr. M. S. Mathivaanan and having placed in the highly industrialized zone of South India, is recognized as one of the best engineering colleges in South India.Our students have prospects
+                  of taking part in a noteworthy range of activities through academic courses taught by renowned professors, research and public service opportunities, and an extraordinary breadth of extracurricular activities.</p>
+          </div>
+      </div>
+      <div class="home-title">
+          <h2>Past Year Memories</h2>
+      </div>
+      <div class="home-images" ng-switch="home.activeIndex">
+          <div class="home-image-content" ng-switch-when="1">
+              <img src="files/history/1.jpg" alt="">
+          </div>
+          <div class="home-image-content" ng-switch-when="2">
+              <img src="files/history/2.jpg" alt="">
+          </div>
+          <div class="home-image-content" ng-switch-when="3">
+              <img src="files/history/3.jpg" alt="">
+          </div>
+          <div class="home-image-content" ng-switch-when="4">
+              <img src="files/history/4.jpg" alt="">
+          </div>
+          <div class="home-image-content" ng-switch-when="5">
+              <img src="files/history/5.jpg" alt="">
+          </div>
+          <div class="home-image-content" ng-switch-when="6">
+              <img src="files/history/6.jpg" alt="">
+          </div>
+      </div>
+      <div class="home-title">
+          <h2>Events</h2>
+      </div>
+      <mf-events></mf-events>
+    </div>
+    <div ng-if="!home.imageLoaded">
+      Loading....
+    </div>
+    <!-- <mf-about></mf-about> -->
+    <!-- <mf-event-view></mf-event-view> -->
+
+    <mf-footer></mf-footer>
+</div>

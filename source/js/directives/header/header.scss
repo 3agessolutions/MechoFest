@@ -1,0 +1,49 @@
+.mecho-fest.fest-headr {
+	height: 80px;
+	background: rgba(0, 0, 0, 0.8);
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: auto;
+	z-index: 1000;
+
+	.fest-headr-logo {
+		width: 40%;
+		float: left;
+		padding-top: 5px;
+		padding-left: 30px;
+
+		img {
+			height: 70px;
+		}
+	}
+
+	.fest-headr-menu {
+		width: 60%;
+		float: right;
+
+		ul {
+			float: right;
+			list-style: none;
+
+			li {
+				float: left;
+				display: block;
+				cursor: pointer;
+
+				span {
+					display: block;
+					@include font(16px, 80px, 'fontRegular', #fff);
+					text-decoration: none;
+					padding: 0 20px;
+				}
+
+				&.active {
+					box-shadow: 0 0 10px #93d4ea inset;
+				}
+			}
+		}
+	}
+	@include clearfix();
+}

@@ -1,0 +1,45 @@
+.mecho-fest.mf-page {
+
+  .home-content {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+      .home-photo {
+          width: 200px;
+          border-radius: 50%;
+          margin: 20px auto;
+          text-align: center;
+          img {width: 200px;}
+      }
+      .home-name {
+          @include font(30px, 50px, 'fontBold', #000000);
+          text-align: center;
+          margin: 20px 0px;
+      }
+      .home-detail {
+          p {
+              @include font(16px, 30px, 'fontRegular', #000000);
+              text-align: left;
+              margin-bottom: 20px;
+              text-indent: 20px;
+          }
+      }
+
+  }
+  .home-title {
+      h2 {
+          @include font(40px, 80px, 'fontBold', #000000);
+          text-align: center;
+      }
+  }
+
+  .home-images { width: 1000px; overflow: hidden; margin: 0 auto;
+      height: 800px;
+      .home-image-content {
+          img { width: 100%; }
+          &.active {
+              display: block;
+          }
+      }
+  }
+}

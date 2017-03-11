@@ -5,9 +5,11 @@
   <meta charset=utf-8>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- bower:css -->
+  <!-- inject:bower:css -->
   <!-- endinject -->
-  <!-- style:css -->
+
+  <!-- inject:style:css -->
+  <!-- all styles will be injected here -->
   <!-- endinject -->
 </head>
 <body>
@@ -15,10 +17,12 @@
     <div ui-view></div>
 
   </div>
-  <!-- vendor:js -->
+  <!-- inject:vendor:js -->
+  <!-- vendor.js will be injected here -->
   <!-- endinject -->
 
-  <!-- script:js -->
+  <!-- inject:script:js -->
+  <!-- other app js will be injected here -->
   <!-- endinject -->
 </body>
 </html>

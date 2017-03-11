@@ -1,0 +1,82 @@
+.mecho-fest.mf-register {
+    .fest-register {
+        width: 100%;
+        margin-top: 0;
+        background: url('imgs/event_back.png') no-repeat center center;
+        background-size: cover;
+
+        .ng-touched.ng-invalid-email,
+        .ng-touched.ng-invalid-pattern,
+        .ng-touched.ng-invalid-required {
+            background: #eeb9b9;
+        }
+
+        .fest-register-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+
+            .fest-register-title {
+                @include font(40px, 80px, 'fontBold', #ffffff);
+                text-align: center;
+            }
+
+            .fest-register-form {
+                .form-row {
+                    padding: 10px 0;
+
+                    .form-label {
+                        float: left;
+                        width: 40%;
+                        text-align: right;
+                        @include font(16px, 50px, 'fontRegular', #ffffff);
+                    }
+
+                    .form-field {
+                        float: left;
+                        width: 60%;
+                        padding-left: 30px;
+                        @include font(16px, 50px, 'fontRegular', #ffffff);
+
+                        input[type="email"],
+                        input[type="text"] {
+                            width: 60%;
+                            @include font(14px, 30px, 'fontBold', #000000);
+                            border: 0;
+                            padding: 0 5px;
+                        }
+                    }
+
+                    .form-button {
+                        background: #000;
+                        @include font(14px, 50px, 'fontRegular', #FFFFFF);
+                        width: 150px;
+                        height: 50px;
+                        border-radius: 5px;
+                        margin: 0 auto;
+                    }
+
+                    .form-button:disabled {
+                        color: #403d3d;
+                        border: 1px solid #403d3d;
+                    }
+                    @include clearfix();
+                }
+
+                .form-footer {
+                    text-align: center;
+                }
+            }
+        }
+
+        .row-success {
+            @include font(14px, 50px, 'fontRegular', #26af4d);
+            text-align: center;
+        }
+
+        .row-warning {
+            @include font(14px, 50px, 'fontRegular', #c7d665);
+            text-align: center;
+        }
+    }
+}

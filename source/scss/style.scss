@@ -197,10 +197,6 @@ html {
     }
 }
 
-.mecho-fest.mecho-fest-events{
-
-}
-
 .mecho-fest.mf-page {
 
   .home-content {
@@ -253,7 +249,6 @@ html {
         margin-top: 0;
         background: url('imgs/event_back.png') no-repeat center center;
         background-size: cover;
-        min-height: 100vh;
 
         .ng-touched.ng-invalid-email,
         .ng-touched.ng-invalid-pattern,
@@ -576,12 +571,16 @@ html {
     }
 }
 
+.mecho-fest.mecho-fest-events{
+
+}
+
 footer {
   background:   #000;
   height: 50px;
 }
 
-.mecho-fest.fest-header {
+.mecho-fest.fest-headr {
 	height: 80px;
 	background: rgba(0, 0, 0, 0.8);
 	position: fixed;
