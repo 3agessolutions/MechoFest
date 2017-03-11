@@ -4,9 +4,9 @@
         .module('mechofest')
         .constant('mfConstants', {
 
-          'base_url': '/',
-          'base_app_url': '/MechoFest/app',
-          'base_app_service_url': '/MechoFest/app/admin',
+          'baseUrl': '/',
+          'baseAppUrl': window.location.href && window.location.href.indexOf('mechofest2k17') > -1 ? '/' : '/MechoFest/app',
+          'baseAppServiceUrl': window.location.href && window.location.href.indexOf('mechofest2k17') > -1 ? '/admin' : '/MechoFest/app/admin',
 
           'imageLocations': [
                 'files/events/eventbg.png',

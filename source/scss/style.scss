@@ -197,8 +197,18 @@ html {
     }
 }
 
-.mecho-fest.mf-page {
+.mecho-fest.mecho-fest-events{
 
+}
+
+.mecho-fest.mf-page {
+  .home-loader {
+    width: 100%;
+    min-height: 100vh;
+    text-align: center;
+    vertical-align: middle;
+    @include font(30px, 50px, 'fontBold', #000000);
+  }
   .home-content {
       max-width: 1000px;
       margin: 0 auto;
@@ -337,7 +347,9 @@ html {
     width: 100%;
     background: url('imgs/banner_back.jpg') no-repeat center center;
     background-size: cover;
-
+    &.loader {
+      background-image: none;
+    }
     &.fest-banner-event {
         background: url('imgs/banner_back_event.jpg') no-repeat center center;
         background-size: cover;
@@ -569,10 +581,6 @@ html {
 			text-align: left;
         }
     }
-}
-
-.mecho-fest.mecho-fest-events{
-
 }
 
 footer {

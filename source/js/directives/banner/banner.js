@@ -19,6 +19,8 @@
                     url = 'source/js/directives/banner/about.html';
                 } else if (attrs.page === 'register') {
                     url = 'source/js/directives/banner/register.html';
+                } else if (attrs.page === 'loader') {
+                    url = 'source/js/directives/banner/loader.html';
                 }
                 return url;
             },
