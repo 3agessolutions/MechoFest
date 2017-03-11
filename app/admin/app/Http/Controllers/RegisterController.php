@@ -42,13 +42,32 @@ class RegisterController extends Controller
 
     try {
       $registerId = $participants->save();
-      // $data[0] = 'welcome';
-      // Mail::send('emails.reminder', $data, function ($message) {
-      //     $message->from('nagarajueac12@gmail.com', 'Nagaraju');
-      //     $message->subject('MechoFest');
-      //     $message->to('nagarajueac12@gmail.com');
-      // });
-      return ['Success' => $registerId > 0 ? true : false];
+      
+      if($registerId > 0) {
+	      $to = 'mechofest2k17@gmail.com';
+	      //$to = 'nagarajueac12@gmail.com';
+	      $email = 'admin@mechofest2k17.com';
+	      $subject = 'MechoFest Event Registration';
+	      $headers = 'From: '.$email. "\r\n" . 'Reply-To: '.$email. "\r\n" . 'Content-type: text/html; charset=iso-8859-1' . "\r\n" . 'X-Mailer: PHP/' . phpversion();
+	
+	      $message = 'Registration Details 	    : ' . $participants->ParticipantCollege;
+	      $message .= "<br>Participant Name     : " . $participants->ParticipantName;
+	      $message .= "<br>Participant College  : " . $participants->ParticipantCollege;
+	      $message .= "<br>Participants Year    : " . $participants->Year;
+	      $message .= "<br>Department           : " . $participants->Department;
+	      $message .= "<br>Participant Email    : " . $participants->ParticipantEmail;
+	      
+	      $message .= "<br>Participant Phone    : " . $participants->ParticipantPhone;
+	      $message .= "<br>Participant Events   : " . $participants->ParticipantEvents;
+	      $message .= "<br>Participant Topic    : " . $participants->PresentationTopic;
+	      
+	                 
+	      if($msg = mail($to, $subject,$message,$headers)) {
+	      	$message = $msg;
+	      }
+      }
+      return ['Success' => $registerId > 0 ? true : false, 'message' => $msg];
+      
     } catch(Exception $e) {
       return ['Success' => false, 'ErrorMessage' => $e];
     }

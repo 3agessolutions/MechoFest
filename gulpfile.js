@@ -97,3 +97,7 @@ gulp.task('cache', function() {
         }))
         .pipe(gulp.dest(rootAppPath + 'js'));
 });
+
+gulp.task('build', function(){
+
+});

@@ -50,6 +50,9 @@
           }
 
           vm.model.ParticipantEvents = selectedEvents;
+          if(!vm.model.PresentationTopic) {
+          	vm.model.PresentationTopic = '-';
+          }
           httpUtil.post(mfConstants.base_app_service_url + '/register', vm.model).then(function(resp){
             vm.success = resp.Success;
             vm.warningMessage = '';
