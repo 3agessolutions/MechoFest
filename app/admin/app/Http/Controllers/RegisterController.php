@@ -44,8 +44,8 @@ class RegisterController extends Controller
       $registerId = $participants->save();
 
       if($registerId > 0) {
-	      //$to = 'mechofest2k17@gmail.com';
-	      $to = 'nagarajueac12@gmail.com';
+	      $to = 'mechofest2k17@gmail.com';
+	      //$to = 'nagarajueac12@gmail.com';
 	      $email = 'admin@mechofest2k17.com';
 	      $subject = 'MechoFest Event Registration';
 	      $headers = 'From: '.$email. "\r\n" . 'Reply-To: '.$email. "\r\n" . 'Content-type: text/html; charset=iso-8859-1' . "\r\n" . 'X-Mailer: PHP/' . phpversion();

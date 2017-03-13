@@ -1,4 +1,9 @@
 footer {
-  background:   #000;
+  background: #000;
   height: 50px;
+
+  p {
+    @include font(14px, 50px, "fontRegular", #fff);
+    padding-left: 20px;
+  }
 }

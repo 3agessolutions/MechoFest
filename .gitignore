@@ -3,3 +3,7 @@ node_modules/
 
 # bower_components
 bower_components/
+
+#zip
+admin.zip
+app/Archive.zip

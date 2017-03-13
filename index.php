@@ -3,6 +3,9 @@
 <head>
   <title>MechoFest</title>
   <meta charset=utf-8>
+  <meta name="keywords" content="SSM college, Cultural Events, Mechanical Engineer,
+    BE, MechoFest, Mechanical student festival, Namakkal, Engineer College, Technical Quiz, Paper Presentation,
+    Competition, SSM Group of Institutions, Bachelor of Engineering, Students">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- inject:bower:css -->
