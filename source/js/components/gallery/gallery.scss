@@ -1,0 +1,66 @@
+.fest-gallery {
+    width: 100%;
+    margin-top: 0;
+    background: url('imgs/event_back.png') no-repeat center center;
+    background-size: cover;
+
+    .fest-gallery-content {
+        padding: 20px;
+        max-width: 1000px;
+        margin: 0 auto;
+
+        .gallery-item {
+            width: 30%;
+            margin: 20px 1.5%;
+            float: left;
+            cursor: pointer;
+            border:4px solid #419fbc;
+            box-shadow: 0 0 10px #419fbc;
+            .gallery-item-wrap  {
+                zoom: 100%;
+                @include clearfix();
+            }
+            img {
+                width: 100%;
+                float: left;
+            }
+            &:hover {
+                .gallery-item-wrap { zoom: 120%; }
+            }
+            @include clearfix();
+        }
+        @include clearfix();
+    }
+
+
+}
+
+.fest-gallery-view {
+    position: fixed;
+    z-index: 10000;
+    height: 100%;
+    width: 100%;
+    background: url('imgs/event_back.png') no-repeat center center;
+    background-size: cover;
+    top:0%;
+    .gallery-nav {
+        width: 10%;
+        height: 100%;
+        float: left;
+        @include font(90px, 100vh, 'fontLight', #ffffff);
+        text-align: center;
+        cursor: pointer;
+        &:last-child { float: right; }
+    }
+    .gallery-nav-cont {
+        width: 80%;
+        height: 100%;
+        float: left;
+        padding: 50px;
+        img { width: 100%; }
+    }
+
+    &.active { top: 0px; }
+
+    @include clearfix();
+}

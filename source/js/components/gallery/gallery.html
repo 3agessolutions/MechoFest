@@ -1,0 +1,21 @@
+<div class="mecho-fest mf-register mf-page">
+    <mf-header></mf-header>
+    <mf-banner page="gallery"></mf-banner>
+
+    <div class="fest-gallery">
+        <div class="fest-gallery-content">
+            <div class="gallery-item" ng-repeat="galleryItem in gallery.galleryItems"  ng-click="gallery.changeView(true, $index + 1)">
+                <div class="gallery-item-wrap"><img src="{{galleryItem.url}}" alt=""></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fest-gallery-view" ng-if="gallery.isViewActive">
+        <div class="gallery-nav" ng-click="gallery.onNavigation(true)">&lt;</div>
+        <div class="gallery-nav-cont" ng-click="gallery.changeView(false)">
+            <img src="{{gallery.activeItem}}" alt="">
+        </div>
+        <div class="gallery-nav" ng-click="gallery.onNavigation(false)">&gt;</div>
+    </div>
+
+</div>

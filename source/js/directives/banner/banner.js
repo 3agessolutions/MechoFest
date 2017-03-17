@@ -21,6 +21,8 @@
                     url = 'source/js/directives/banner/register.html';
                 } else if (attrs.page === 'loader') {
                     url = 'source/js/directives/banner/loader.html';
+                } else if (attrs.page === 'gallery') {
+                    url = 'source/js/directives/banner/gallery.html';
                 }
                 return url;
             },

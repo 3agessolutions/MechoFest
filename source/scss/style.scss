@@ -197,6 +197,125 @@ html {
     }
 }
 
+.fest-gallery {
+    width: 100%;
+    margin-top: 0;
+    background: url('imgs/event_back.png') no-repeat center center;
+    background-size: cover;
+
+    .fest-gallery-content {
+        padding: 20px;
+        max-width: 1000px;
+        margin: 0 auto;
+
+        .gallery-item {
+            width: 30%;
+            margin: 20px 1.5%;
+            float: left;
+            cursor: pointer;
+            border:4px solid #419fbc;
+            box-shadow: 0 0 10px #419fbc;
+            .gallery-item-wrap  {
+                zoom: 100%;
+                @include clearfix();
+            }
+            img {
+                width: 100%;
+                float: left;
+            }
+            &:hover {
+                .gallery-item-wrap { zoom: 120%; }
+            }
+            @include clearfix();
+        }
+        @include clearfix();
+    }
+
+
+}
+
+.fest-gallery-view {
+    position: fixed;
+    z-index: 10000;
+    height: 100%;
+    width: 100%;
+    background: url('imgs/event_back.png') no-repeat center center;
+    background-size: cover;
+    top:0%;
+    .gallery-nav {
+        width: 10%;
+        height: 100%;
+        float: left;
+        @include font(90px, 100vh, 'fontLight', #ffffff);
+        text-align: center;
+        cursor: pointer;
+        &:last-child { float: right; }
+    }
+    .gallery-nav-cont {
+        width: 80%;
+        height: 100%;
+        float: left;
+        padding: 50px;
+        img { width: 100%; }
+    }
+
+    &.active { top: 0px; }
+
+    @include clearfix();
+}
+
+.mecho-fest.mf-page {
+  .home-loader {
+    width: 100%;
+    min-height: 100vh;
+    text-align: center;
+    vertical-align: middle;
+    @include font(30px, 50px, 'fontBold', #000000);
+  }
+  .home-content {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+      .home-photo {
+          width: 200px;
+          border-radius: 50%;
+          margin: 20px auto;
+          text-align: center;
+          img {width: 200px;}
+      }
+      .home-name {
+          @include font(30px, 50px, 'fontBold', #000000);
+          text-align: center;
+          margin: 20px 0px;
+      }
+      .home-detail {
+          p {
+              @include font(16px, 30px, 'fontRegular', #000000);
+              text-align: left;
+              margin-bottom: 20px;
+              text-indent: 20px;
+          }
+      }
+
+  }
+  .home-title {
+      h2 {
+          @include font(40px, 80px, 'fontBold', #000000);
+          text-align: center;
+      }
+  }
+
+  .home-images { width: 1000px; overflow: hidden; margin: 0 auto;
+      height: 800px;
+      .home-image-content {
+          img { width: 100%; }
+          &.active {
+              display: block;
+          }
+      }
+  }
+}
+
 .mecho-fest.mecho-fest-events{
 
 }
@@ -284,58 +403,6 @@ html {
     }
 }
 
-.mecho-fest.mf-page {
-  .home-loader {
-    width: 100%;
-    min-height: 100vh;
-    text-align: center;
-    vertical-align: middle;
-    @include font(30px, 50px, 'fontBold', #000000);
-  }
-  .home-content {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 20px;
-      .home-photo {
-          width: 200px;
-          border-radius: 50%;
-          margin: 20px auto;
-          text-align: center;
-          img {width: 200px;}
-      }
-      .home-name {
-          @include font(30px, 50px, 'fontBold', #000000);
-          text-align: center;
-          margin: 20px 0px;
-      }
-      .home-detail {
-          p {
-              @include font(16px, 30px, 'fontRegular', #000000);
-              text-align: left;
-              margin-bottom: 20px;
-              text-indent: 20px;
-          }
-      }
-
-  }
-  .home-title {
-      h2 {
-          @include font(40px, 80px, 'fontBold', #000000);
-          text-align: center;
-      }
-  }
-
-  .home-images { width: 1000px; overflow: hidden; margin: 0 auto;
-      height: 800px;
-      .home-image-content {
-          img { width: 100%; }
-          &.active {
-              display: block;
-          }
-      }
-  }
-}
-
 
 
 @include animation-keyframes(spin, 0deg, 360deg);
@@ -395,6 +462,14 @@ html {
             height: 108px;
             max-width: 100%;
             background: url('imgs/banner_about_name.png') no-repeat center center;
+            background-size: cover;
+            margin: 20px auto;
+        }
+        .fest-banner-gallery-name {
+            width: 326px;
+            height: 127px;
+            max-width: 100%;
+            background: url('imgs/banner_gallery_name.png') no-repeat center center;
             background-size: cover;
             margin: 20px auto;
         }
@@ -537,6 +612,52 @@ html {
 	@include clearfix();
 }
 
+.mecho-fest.event-view {
+    width: 100%;
+    margin-top: 30px;
+    background: url('imgs/event_back.png') no-repeat center center;
+    background-size: cover;
+    min-height: 100vh;
+    .event-view-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        .event-view-title {
+            @include font(40px, 80px, 'fontBold', #ffffff);
+            text-align: center;
+        }
+
+        .event-view-topics, .event-view-rules {
+            padding-top: 50px;
+            h4 {
+                @include font(30px, 50px, 'fontBold', #ffffff);
+                text-align: left;
+            }
+            ul li {
+                padding-left: 40px;
+                background: url('imgs/bullet.png') no-repeat 0px 5px;
+                background-size: 30px 30px;
+                @include font(16px, 40px, 'fontRegular', #ffffff);
+                text-align: left;
+            }
+        }
+    }
+
+    .event-contact {
+        padding: 50px 20px;
+		max-width: 1200px;
+        margin: 0 auto;
+        h2 {
+            @include font(20px, 40px, 'fontBold', #ffffff);
+			text-align: left;
+        }
+        p {
+            @include font(14px, 24px, 'fontRegular', #ffffff);
+			text-align: left;
+        }
+    }
+}
+
 footer {
   background: #000;
   height: 50px;
@@ -595,50 +716,4 @@ footer {
 		}
 	}
 	@include clearfix();
-}
-
-.mecho-fest.event-view {
-    width: 100%;
-    margin-top: 30px;
-    background: url('imgs/event_back.png') no-repeat center center;
-    background-size: cover;
-    min-height: 100vh;
-    .event-view-content {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 20px;
-        .event-view-title {
-            @include font(40px, 80px, 'fontBold', #ffffff);
-            text-align: center;
-        }
-
-        .event-view-topics, .event-view-rules {
-            padding-top: 50px;
-            h4 {
-                @include font(30px, 50px, 'fontBold', #ffffff);
-                text-align: left;
-            }
-            ul li {
-                padding-left: 40px;
-                background: url('imgs/bullet.png') no-repeat 0px 5px;
-                background-size: 30px 30px;
-                @include font(16px, 40px, 'fontRegular', #ffffff);
-                text-align: left;
-            }
-        }
-    }
-
-    .event-contact {
-        padding: 50px 20px;
-		max-width: 1200px;
-        margin: 0 auto;
-        h2 {
-            @include font(20px, 40px, 'fontBold', #ffffff);
-			text-align: left;
-        }
-        p {
-            @include font(14px, 24px, 'fontRegular', #ffffff);
-			text-align: left;
-        }
-    }
 }
