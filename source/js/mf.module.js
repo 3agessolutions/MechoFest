@@ -1,5 +1,5 @@
 (function() {
-    angular.module('mechofest', ["ngResource", "ui.router"]);
+    angular.module('mechofest', ["ngResource", "ui.router", "ngFileUpload"]);
     angular.module('mechofest')
         .config(function($compileProvider) {
             $compileProvider.preAssignBindingsEnabled(true);

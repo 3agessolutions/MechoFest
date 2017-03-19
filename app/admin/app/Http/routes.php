@@ -17,3 +17,4 @@
 
 Route::get('register', 'RegisterController@index');
 Route::post('register', 'RegisterController@save');
+Route::post('upload', 'UploadController@index');
